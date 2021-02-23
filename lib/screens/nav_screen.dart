@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:longmarket/config/config.dart';
+
+import '../screens/screens.dart';
+import '../config/config.dart';
+
 
 class NavScreen extends StatefulWidget {
   @override
@@ -9,11 +12,11 @@ class NavScreen extends StatefulWidget {
 class _NavScreenState extends State<NavScreen> {
   int _selectedIndexScreen = 0;
   List mainScreen = [
-    Scaffold(),
-    Scaffold(),
-    Scaffold(),
-    Scaffold(),
-    Scaffold(),
+    HomeScreen(),
+    ExploreScreen(),
+    AddAdvertisingScreen(),
+    MessageScreen(),
+    AccountScreen(),
   ];
   onTapped(int index) async {
     // if (index == 0) {
@@ -41,14 +44,12 @@ class _NavScreenState extends State<NavScreen> {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            setState(() {
               // if (Provider.of<UserInformation>(context, listen: false).token !=
               //     null)
-              _selectedIndexScreen = 2;
+              onTapped(2);
               // else
               //   toastShow(
               //       getTranslated(context, "Please SingUp or SingIn"), context);
-            });
           },
           shape: _CustomBorder(),
           backgroundColor: _selectedIndexScreen == 2
